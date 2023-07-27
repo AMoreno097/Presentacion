@@ -1,0 +1,34 @@
+﻿@model Modelo.producto
+@{
+    ViewBag.Title = "ListaProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListaProducto</h2>
+<div style="float:right;">
+    @Html.ActionLink(" ", "Form", "Producto", htmlAttributes: new { @class = "btn btn-primary glyphicon glyphicon-plus-sign" })
+</div>
+
+<br />
+<table class="table table-bordered table-responsive">
+    <thead>
+        <tr>
+            <td>Codigo</td>
+            <td>nombre</td>
+            <td>precio</td>
+            <td>Fabricante</td>      
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Modelo.producto Producto in Model.productos)
+        {
+            <tr>
+                <td>@Producto.codigo</td>
+                <td>@Producto.nombre</td>
+                <td>@Producto.precio</td>
+                <td>@Producto.fabricante.nombre</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
